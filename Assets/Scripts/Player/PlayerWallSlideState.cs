@@ -34,6 +34,10 @@ public class PlayerWallSlideState : PlayerState
         if (xInput != 0 && player.faceDir != xInput || player.CheckGround() || !player.CheckWall())
         {
             player.stateMachine.ChangeState(player.idleState);
+        } else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            player.stateMachine.ChangeState(player.wallJumpState);
         }
+
     }
 }

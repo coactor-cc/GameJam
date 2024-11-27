@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerState
+public class PlayerWallJumpState : PlayerState
 {
-    public PlayerJumpState(Player player,  string animBoolName) : base(player, animBoolName) { }
+    public PlayerWallJumpState(Player _player, string _animBoolName) : base(_player, _animBoolName)
+    {
+    }
 
     public override void Enter()
     {
         base.Enter();
-        player.SetVelocity(player.rb.velocity.x, player.jumpForce);
+
+        player.SetVelocity(-player.faceDir * 3, player.jumpForce);
     }
 
     public override void Exit()
